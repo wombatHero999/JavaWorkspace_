@@ -6,73 +6,73 @@ public class VariablePractice1 {
 	Scanner sc = new Scanner(System.in);
 	
 	public void practice1() {		
-		System.out.print("ÀÌ¸§ : ");
-		String name = sc.next(); // ¤»¤»¤»¤»
+		System.out.print("ì´ë¦„ : ");
+		String name = sc.next(); // ã…‹ã…‹ã…‹ã…‹
 		
-		System.out.print("¼ºº° : ");
+		System.out.print("ì„±ë³„ : ");
 		char gender = sc.next().charAt(0);
 		
-		System.out.print("³ªÀÌ : ");
+		System.out.print("ë‚˜ì´ : ");
 		int age = sc.nextInt();
 		
-		System.out.print("Å° : ");
+		System.out.print("í‚¤ : ");
 		double height = sc.nextDouble();
 		
-		System.out.println("Å° "+height+"cmÀÎ "+age+"»ì "+
-		gender+"ÀÚ "+name+"´Ô ¹İ°©½À´Ï´Ù ^^");
+		System.out.println("í‚¤ "+height+"cmì¸ "+age+"ì‚´ "+
+		gender+"ì "+name+"ë‹˜ ë°˜ê°‘ìŠµë‹ˆë‹¤ ^^");
 	}
 	
 	public void practice2() {
 		
 		
-		System.out.print("Ã¹ ¹øÀç Á¤¼ö : ");
+		System.out.print("ì²« ë²ˆì¬ ì •ìˆ˜ : ");
 		int num1 = sc.nextInt(); 
 		
-		System.out.print("µÎ ¹øÀç Á¤¼ö : ");
+		System.out.print("ë‘ ë²ˆì¬ ì •ìˆ˜ : ");
 		int num2 = sc.nextInt();
 		
-		System.out.print("´õÇÏ±â : 237" + (num1 + num2));
-		System.out.print("»©±â : " + (num1 - num2));
-		System.out.print("°öÇÏ±â : " + num1 * num2);
-		System.out.print("³ª´©±â : " + num1 / num2);
+		System.out.print("ë”í•˜ê¸° : 237" + (num1 + num2));
+		System.out.print("ë¹¼ê¸° : " + (num1 - num2));
+		System.out.print("ê³±í•˜ê¸° : " + num1 * num2);
+		System.out.print("ë‚˜ëˆ„ê¸° : " + num1 / num2);
 	}
 	
 	public void practice3() {
 		
-		System.out.print("°¡·Î : ");
+		System.out.print("ê°€ë¡œ : ");
 		double width = sc.nextDouble();
 		
-		System.out.print("¼¼·Î : ");
+		System.out.print("ì„¸ë¡œ : ");
 		double height = sc.nextDouble();
 		
-		System.out.println("¸éÀû : "+ width * height);
-		System.out.println("µÑ·¹ : "+ (width + height) * 2);// sysout + ctrl +space
+		System.out.println("ë©´ì  : "+ width * height);
+		System.out.println("ë‘˜ë ˆ : "+ (width + height) * 2);// sysout + ctrl +space
 	}
 	
 	public void practice4() {
 		
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·Â : ");
+		System.out.print("ë¬¸ìì—´ì„ ì…ë ¥ : ");
 		String str = sc.next(); // apple
 		
-		System.out.println("Ã¹ ¹øÂ° ¹®ÀÚ : "+str.charAt(0));
-		System.out.println("µÎ ¹øÂ° ¹®ÀÚ : "+str.charAt(1));
-		System.out.println("¼¼ ¹øÂ° ¹®ÀÚ : "+str.charAt(2));
+		System.out.println("ì²« ë²ˆì§¸ ë¬¸ì : "+str.charAt(0));
+		System.out.println("ë‘ ë²ˆì§¸ ë¬¸ì : "+str.charAt(1));
+		System.out.println("ì„¸ ë²ˆì§¸ ë¬¸ì : "+str.charAt(2));
 	}
 	
 	public void practice5() {
-		System.out.print("±¹ : ");
+		System.out.print("êµ­ : ");
 		double kor = sc.nextDouble();
 		
-		System.out.print("¿µ : ");
+		System.out.print("ì˜ : ");
 		double eng = sc.nextDouble();
 		
-		System.out.print("¼ö : ");
+		System.out.print("ìˆ˜ : ");
 		double math = sc.nextDouble();
 		
 		int total = (int)(kor + eng + math);
 		int avg = total / 3;
-		System.out.println("ÃÑÁ¡ : " + total);
-		System.out.println("Æò±Õ : " + avg);
+		System.out.println("ì´ì  : " + total);
+		System.out.println("í‰ê·  : " + avg);
 	}
 	
 	public void method() {
