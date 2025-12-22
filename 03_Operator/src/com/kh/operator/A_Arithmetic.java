@@ -2,7 +2,7 @@ package com.kh.operator;
 
 public class A_Arithmetic {
 	
-	// »ê¼ú¿¬»êÀÚ
+	// ì‚°ìˆ ì—°ì‚°ì
 	// * / % + -
 	public void method() {
 		int num1 = 10;
