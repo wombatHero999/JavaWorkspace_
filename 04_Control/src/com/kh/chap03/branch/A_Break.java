@@ -57,7 +57,6 @@ public class A_Break {
 	
 	public void method4() {
 		// 심볼
-		
 		loop1:
 		for(int i = 0; i< 10; i++) {
 			loop2:
@@ -67,7 +66,6 @@ public class A_Break {
 				// break; 가장 가까운 반복문 탈출.
 			}
 		}
-		
 	}
 	
 	
