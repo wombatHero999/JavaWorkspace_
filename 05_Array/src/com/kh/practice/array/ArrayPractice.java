@@ -1,5 +1,6 @@
 package com.kh.practice.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -119,22 +120,168 @@ public class ArrayPractice {
 	}
 
 	public void practice7() {
-
+		System.out.print("문자열 : ");
+		String str = sc.next();
+		
+		System.out.print("문자 : ");
+		char ch = sc.next().charAt(0);
+		
+		char[] arr = str.toCharArray();// 문자열을 문자배열로 변환하는 메서드.
+		int count = 0;
+		
+		System.out.print(str+"에 "+ch+"가 존재하는 위치(인덱스) : ");
+		for(int i=0; i< arr.length; i++) {
+			if(arr[i] == ch) {
+				count++;
+				System.out.print(i+" ");
+			}
+		}
+		System.out.print(ch+"의 개수 : "+count);
 	}
 
 	public void practice8() {
-
+		System.out.print("주민등록번호(-포함) : ");
+		String str = sc.next();
+		char [] origin = str.toCharArray();// 원본배열
+		char [] copy = Arrays.copyOf(origin, origin.length); // 복사본
+		
+		// 123456-1234567
+		// 123456-1******
+		// 주민번호 뒷자리 마스킹처리
+		for(int i = 8; i<copy.length; i++) {
+			copy[i] = '*';
+		}
+		
+		for(int i =0; i<copy.length; i++) {
+			System.out.print(copy[i]);
+		}
 	}
 
 	public void practice9() {
-
+		int[] arr = new int [10];
+		
+		for(int i =0; i<arr.length; i++) {
+			arr[i] = (int)(Math.random() * 10 + 1);
+		}
+		
+		for(int i=0; i<arr.length; i++) {
+			System.out.print(arr[i] +" ");
+		}
+		
+		//최대값, 최소값
+		int max = arr[0];
+		int min = arr[0];
+		
+		for(int i = 1; i<arr.length; i++) {
+			if(arr[i] > max) {
+				max = arr[i];
+			}
+			if(arr[i] < min) {
+				min = arr[i];
+			}
+		}
+		System.out.println("\n최대값 : " + max);
+		System.out.println("최소값 : " + min);
 	}
-
+	
+	public void practice10() {
+		
+		int [] arr = new int[10];
+		
+		for(int i =0; i<arr.length; i++) {
+			arr[i] = (int)(Math.random() * 10 + 1);
+			for(int j = 0; j<i; j++) {
+				// 중복검사
+				if (arr[j] == arr[i]) {
+					i--;
+					break;
+				}
+			}
+		}
+		
+		for(int i =0; i< arr.length; i++) {
+			System.out.print(arr[i]+" ");
+		}
+	}
+	
 	public void practice11() {
-
+		System.out.print("정수 : ");
+		int num = sc.nextInt(); 
+		
+		if(!(num % 2 == 1 && num >= 3)) {
+			System.out.println("다시 입력하세요.");
+			practice11();
+			return;
+		}
+		int [] arr = new int[num];
+		int mid = num / 2;
+		
+		int value = 0;
+		for(int i = 0; i<arr.length; i++) {
+			// mid까지는 오름차순
+			if(i <= mid) {
+				arr[i] = ++value;
+			}else {
+				// mid이후는 내림차순
+				arr[i] = --value;
+			}
+		}
 	}
 
 	public void practice12() {
-
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int num = sc.nextInt();
+		String[] arr = new String[num];//[자바의 정석 , 알고리즘 , c프로그래밍]
+		
+		sc.nextLine(); // 개행문자 제거.
+		
+		for(int i = 0; i< arr.length; i++) {
+			System.out.print(i+1+"번째 문자열 : ");
+			arr[i] = sc.nextLine();// 띄어쓰기 포함.
+		}
+		
+		while(true) {
+			System.out.print("더 값을 입력 하시겠습니까?(Y/N) : ");
+			char ch = sc.nextLine().charAt(0);
+			
+			if(ch == 'Y' || ch == 'y') {
+				System.out.print("더 입력하고 싶은 개수 : ");
+				int num2 = sc.nextInt();
+				//[자바의 정석 , 알고리즘 , c프로그래밍]
+				//[자바의 정석 , 알고리즘 , c프로그래밍 , ㅇㅇ, 11]
+				//[자바의 정석 , 알고리즘 , c프로그래밍 , ㅇㅇ, 12, 영단어 600]
+				String[] copy = Arrays.copyOf(arr, arr.length+ num2);
+				
+				sc.nextLine();			
+				for(int i = arr.length; i<copy.length; i++) {
+					System.out.print(i+1+"번째 문자열 : ");
+					copy[i] = sc.nextLine();// 띄어쓰기 포함.
+				}
+				arr = copy; //얕은복사
+			}else {
+				System.out.println(Arrays.toString(arr));
+				break;
+			}
+		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
+
+
+
+

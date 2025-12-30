@@ -47,6 +47,7 @@ public class LoopPractice {
 		}
 		System.out.println(sum);
 	}
+	
 
 	public void practice4() {
 		System.out.print("첫 번째 숫자");
