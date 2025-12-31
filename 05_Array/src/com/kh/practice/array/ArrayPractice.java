@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ArrayPractice {
 	Scanner sc = new Scanner(System.in);
-
+	
 	public void practice1() {
 //		길이가 10인 배열을 선언하고 1부터 10까지의 값을 반복문을 이용하여 
 //		역순으로 배열 인덱스에 넣은 후그 값을 출력하세요
