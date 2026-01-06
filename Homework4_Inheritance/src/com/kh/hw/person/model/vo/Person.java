@@ -3,15 +3,35 @@ package com.kh.hw.person.model.vo;
 public class Person {
 	private String name;
 	private int age;
+	private double height;
+	private double weight;
 
 	public Person() {
 
 	}
 
-	public Person(String name, int age) {
+	public double getHeight() {
+		return height;
+	}
+
+	public void setHeight(double height) {
+		this.height = height;
+	}
+
+	public double getWeight() {
+		return weight;
+	}
+
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
+	public Person(String name, int age, double height, double weight) {
 		super();
 		this.name = name;
 		this.age = age;
+		this.height = height;
+		this.weight = weight;
 	}
 
 	public String getName() {
@@ -32,7 +52,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return name + ", " + age;
+		return "Person [name=" + name + ", age=" + age + ", height=" + height + ", weight=" + weight + "]";
 	}
 
 }

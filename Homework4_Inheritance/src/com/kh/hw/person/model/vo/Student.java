@@ -8,8 +8,8 @@ public class Student extends Person {
 		super();
 	}
 
-	public Student(String name, int age, int grade, String major) {
-		super(name, age);
+	public Student(String name, int age, double height, double weight, int grade, String major) {
+		super(name, age, height, weight);
 		this.grade = grade;
 		this.major = major;
 	}
