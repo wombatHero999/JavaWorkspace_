@@ -51,7 +51,7 @@ public class PersonController {
 	}
 	
 	public Employee[] printEmployee() {
-		
+		return e;
 	}
 	
 }

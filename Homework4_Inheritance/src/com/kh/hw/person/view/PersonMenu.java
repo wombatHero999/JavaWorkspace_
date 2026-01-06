@@ -3,6 +3,7 @@ package com.kh.hw.person.view;
 import java.util.Scanner;
 
 import com.kh.hw.person.controller.PersonController;
+import com.kh.hw.person.model.vo.Employee;
 import com.kh.hw.person.model.vo.Student;
 
 public class PersonMenu {
@@ -126,7 +127,10 @@ public class PersonMenu {
 	}
 
 	public void printEmployee() {
-
+		Employee[] arr = pc.printEmployee();
+		for(Employee std : arr) {
+			if(std != null) System.out.println(std);
+		}
 	}
 
 }
