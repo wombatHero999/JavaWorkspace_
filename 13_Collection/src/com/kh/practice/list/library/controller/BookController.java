@@ -19,18 +19,44 @@ public class BookController {
 	
 	
 	public void insertBook(Book bk) {
+		bookList.add(bk);
 	}
 	
 	public ArrayList selectList() {
+		return (ArrayList) bookList;
 	}
 	
 	public ArrayList searchBook(String keyword) {
+		// 검색 결과 리스트를 담아줄 리스트(ArrayList searchList) 선언 및 생성 
+		ArrayList searchList = new ArrayList();
+		
+		for(Object o : bookList) {
+			Book b = (Book) o;
+			if(b.getTitle().contains(keyword)) {
+				searchList.add(b);
+			}
+		}
+		
+		return searchList;
 	}
 	
 	public Book deleteBook(String title, String author) {
+		// 삭제된 도서를 담을 Book객체 (Book removeBook) 선언 및 null로 초기화 
+		Book removeBook = null;
+		
+		for(int i = 0; i<bookList.size(); i++) {
+			Book b = (Book) bookList.get(i);
+			if(b.getTitle().equals(title) && 
+					b.getAuthor().equals(author)) {
+				removeBook = (Book) bookList.remove(i);
+			}
+		}
+		return removeBook;
 	}
 	
 	public int ascBook() {
+		Collections.sort(bookList);
+		return 1;
 	}
 	
 	
@@ -41,3 +67,5 @@ public class BookController {
 	
 	
 }
+
+

@@ -49,18 +49,85 @@ public class BookMenu {
 	}
 
 	public void insertBook() {
+		System.out.print("도서명 : ");
+		String title = sc.nextLine();
+		
+		System.out.print("저자명 : ");
+		String author = sc.nextLine();
+				
+		System.out.print("장르(1.인문 / 2.자연과학 / 3.의료 / 4.기타) : ");
+		int category = sc.nextInt();
+		
+		System.out.print("가격 : ");
+		int price = sc.nextInt();
+		sc.nextLine();
+		
+		String[] arr = {"인문","자연과학","의료","기타"};
+		Book b = new Book(title, author, arr[category-1] , price);
+		bc.insertBook(b);
 	}
 
 	public void selectList() {
+		ArrayList<Book> bookList =  bc.selectList();
+		
+		if(bookList.isEmpty()) {
+			System.out.println("존재하는 도서가 없습니다.");
+		}else {
+			for(Book b : bookList) {
+				System.out.println(b);
+			}
+		}
 	}
 
 	public void searchBook() {
+//		1. 검색할 도서명 키워드로 입력 받기 (String keyword)  
+		System.out.print("검색할 도서명 : ");
+		String keyword = sc.nextLine();
+		
+		ArrayList<Book> searchList = bc.searchBook(keyword);
+		
+		if(searchList.isEmpty()) {
+			System.out.println("검색결과가 없습니다.");
+		}else {
+			for(Book b : searchList) {
+				System.out.println(b);
+			}
+		}
 	}
 
 	public void deleteBook() {
+		System.out.print("책 제목 : ");
+		String title = sc.nextLine();
+		
+		System.out.print("저자명 : ");
+		String author = sc.nextLine();
+		
+		Book remove = bc.deleteBook(title, author);
+		
+		if(remove != null) {
+			System.out.println("삭제할 도서를 찾았습니다.");
+		}else {
+			System.out.println("삭제할 도서가 없습니다.");
+		}
 	}
 
 	public void ascBook() {
+		int result = bc.ascBook();
+		if(result == 1) {
+			System.out.println("정렬 성공");
+		}else {
+			System.out.println("정렬 실패");
+		}
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
