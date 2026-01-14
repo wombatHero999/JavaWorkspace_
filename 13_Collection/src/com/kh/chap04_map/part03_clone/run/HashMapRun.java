@@ -1,5 +1,7 @@
 package com.kh.chap04_map.part03_clone.run;
 
+import com.kh.chap04_map.part01_hashMap.model.vo.Snack;
+
 public class HashMapRun <K , V> {
 	private Entry<K, V>[] table;
 	private int capacity; // 객체배열의 크기로써 사용
@@ -21,6 +23,7 @@ public class HashMapRun <K , V> {
 	// 객체 생성시 반드시 객체배열의 크기를 지정
 	public HashMapRun(int capacity) {
 		this.capacity = capacity;
+		this.table = new Entry[capacity];
 	}
 	
 	public int getIndex(K key) {
@@ -135,18 +138,18 @@ public class HashMapRun <K , V> {
 			
 			if(entry.key.equals(key)) {
 				// 첫번째 entry인 경우 table의 index를 통해 삭제
-				table[index] = null;
-				// 두번째 이상의 entry인 경우 next필드의 값을 null로 변경하여 삭제
-				prev.next = entry.next;
-				
+				if(table[index] == entry) {
+					table[index] = entry.next;
+				}else {
+					// 두번째 이상의 entry인 경우 next필드의 값을 null로 변경하여 삭제
+					prev.next = entry.next;					
+				}
 				size--;
 				break;
 			}
 			prev = entry; // 이전값 보관하기.
 			entry = entry.next; 			
 		}while(entry != null);
-		
-		
 		// 객체가 있다면 저장된 객체의 key값과 매개변수로 전달받은 key값 확인 
 		// 동일하다면 현재 Node삭제. 
 	}
@@ -179,14 +182,21 @@ public class HashMapRun <K , V> {
 	}
 	
 	
-	
-	
 	public static void main(String[] args) {
-		
+		HashMapRun<String,Snack> hm = new HashMapRun<>(10);  
+		hm.put("다이제", new Snack("초코맛", 1500)); 
+		hm.put("칸초", new Snack("단맛", 600)); 
+		hm.put("새우깡", new Snack("짠맛", 500)); 
+		hm.put("포테이토칩", new Snack("짠맛", 500)); 
+		System.out.println(hm.get("새우깡")); // 출력 :  짠맛, 500원      
+		hm.put("새우깡", new Snack("매운맛", 700)); 
+		System.out.println(hm.get("새우깡")); // 출력 :  매운맛, 700원   
+		System.out.println(hm.containsKey("새우깡"));  // 출력 : true 
+		System.out.println(hm.size());  //  출력 : 4 
+		hm.remove("포테이토칩"); 
+		System.out.println(hm.containsKey("포테이토칩 ")); // 출력 : false 
+		System.out.println(hm.size()); // 출력 : 3 
 	}
-	
-	
-	
 	
 }
 
