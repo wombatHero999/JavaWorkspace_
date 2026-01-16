@@ -19,7 +19,31 @@ public class OuterClass3 {
 	 *   static final ... -> static 메모리 내부의 constant pool에 할당
 	 *   final 키워드만 붙은 변수도 constant pool에 저장공간이 임시로 할당된다.
 	 * */
+	private String str = "일반필드";
+	private static String staticStr = "정적필드";
 	
+	public Runnable getRunnable(int num2) {
+		int local = 1; // 지역변수
+		//local = 5;
+		
+		// 지역변수는 지역내부클래스에서 사용되는 경우, final예약어가붙은 것처럼 취급된다.
+		// why? statck메모리에서 지역변수의 저장공간이 소멸된 후 , 참조를 유지하기 위해서
+		class LocalInnerClass implements Runnable {
+			private int num = 10;
+			// local
+			
+			@Override
+			public void run() {
+				// 지역변수는 메서드 종료시 스택공간에서 함께 소멸된다.
+				System.out.println(local);
+				System.out.println(num2);
+				System.out.println(num);
+				System.out.println(str);
+				System.out.println(staticStr);
+			}
+		}
+		return new LocalInnerClass();
+	}
 
 }
 

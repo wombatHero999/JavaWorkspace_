@@ -25,9 +25,9 @@ public class OuterClass {
 		
 		public void method() {
 			System.out.println(num);
-			System.out.println(str); // 외부클래스의 필드.
 			System.out.println(staticStr);
 			System.out.println(sNum);
+			System.out.println(str); // 외부클래스의 필드.
 		}
 	}
 	

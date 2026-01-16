@@ -3,6 +3,7 @@ package com.kh.chap01_innerClass.run;
 import com.kh.chap01_innerClass.part01_instance.OuterClass;
 //import com.kh.chap01_innerClass.part01_instance.OuterClass.InnerClass;
 import com.kh.chap01_innerClass.part02_static.model.vo.Member;
+import com.kh.chap01_innerClass.part03_local.OuterClass3;
 
 public class Run {
 	public static void main(String[] args) {
@@ -24,8 +25,16 @@ public class Run {
 		 *  - vo클래스에 setter메서드가 존재하지 않음으로써 불변성 유지가 가능
 		 *  - 올바른 값이 초기화 되었는지 검증이 가능
 		 *  */
+		
+		OuterClass3 oc3 = new OuterClass3();
+		Runnable r = oc3.getRunnable(0);
+		r.run();
 	}
 }
+
+
+
+
 
 
 
